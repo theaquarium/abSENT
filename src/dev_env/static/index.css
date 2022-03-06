@@ -1,0 +1,478 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+}
+
+button, input {
+    font-family: 'Inter', sans-serif;
+}
+
+/* .divider {
+    width: 2px;
+    background: #888;
+    flex: 0 1 auto;
+} */
+
+.divider {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+.schoology-sim, .sms-sim {
+    transition: width 0.5s, filter 0.5s;
+    position: absolute;
+    height: 100vh;
+    width: 30%;
+    z-index: 1;
+    background: #fff;
+    filter: blur(0.5rem) brightness(0.6);
+}
+
+.schoology-sim {
+    right: 0;
+    border-left: 5px solid #222;
+}
+
+.sms-sim {
+    left: 0;
+    border-right: 5px solid #222;
+}
+
+.is-bigger {
+    width: 80%;
+    z-index: 3;
+    filter: blur(0) brightness(1);
+}
+
+.sms-sim {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.sms-numbers {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sms-numbers-list {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.sms-add-number {
+    padding: 1rem;
+    background: #ddd;
+    border-bottom: 3px solid #888;
+    flex: 0;
+}
+
+#sms-add-number-button {
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.sms-number-card {
+    border-bottom: 3px solid #888;
+    background: #fafafa;
+    padding: 0.8rem;
+    font-size: 1rem;
+    width: 100%;
+    height: 5rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+}
+
+.sms-number-card.is-active-number {
+    background: #ccc;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+.sms-number-card.is-unread-number {
+    background: rgb(250, 195, 195);
+}
+
+.sms-number-card-delete {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.sms-number-card-delete > svg {
+    width: 100%;
+    height: 100%;
+    fill: #0009;
+}
+
+.sms-number-card-delete:hover > svg {
+    fill: #000c;
+}
+
+.add-number-message {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.sms-conversation {
+    flex: 1;
+    border-left: 3px solid #888;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sms-conversation-header {
+    flex: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: #eee;
+    text-align: center;
+}
+
+#sms-header-number {
+    font-weight: bold;
+}
+
+.sms-conversation-texts {
+    flex: 1;
+    overflow-y: scroll;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.sms-text {
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+    max-width: 40%;
+    overflow-wrap: break-word;
+}
+
+.sms-text.sms-text-from-user {
+    background: #ccc;
+    color: #000;
+    align-self: flex-end;
+}
+
+.sms-text.sms-text-from-absent {
+    background: #4d4dff;
+    color: #fff;
+    align-self: flex-start;
+}
+
+.sms-input {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background: #eee;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#sms-input-field {
+    flex: 1;
+    flex-shrink: 1;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    padding: 0 1rem;
+    height: 4rem;
+    border: 2px solid #000;
+}
+
+#sms-input-send {
+    flex: 0;
+    margin-left: 1rem;
+    border: 2px solid #4d4dffa4;
+    border-radius: 2rem;
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem 1rem;
+    cursor: pointer;
+}
+
+#sms-input-send > svg {
+    height: 2rem;
+    width: 2rem;
+    fill: #4d4dffa4;
+    position: relative;
+    top: -0.05rem;
+    left: -0.25rem;
+}
+
+#sms-input-send:hover {
+    border-color: #4d4dff;
+}
+
+#sms-input-send:hover > svg {
+    fill: #4d4dff;
+}
+
+.schoology-sim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-sizing: border-box;
+}
+
+.schoology-update-data {
+    width: 90%;
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#schoology-update-user, #schoology-update-date, #schoology-update-time {
+    font-size: 1rem;
+}
+
+#schoology-update-date, #schoology-update-time {
+    width: 10rem;
+    margin-left: 1rem;
+}
+
+#schoology-update-user {
+    flex: 1;
+}
+
+/* #schoology-update-content {
+    height: 8rem;
+    width: 90%;
+    resize: none;
+    font-size: 1rem;
+    font-family: 'Roboto Mono', monospace;
+} */
+
+.schoology-update-content {
+    height: 12rem;
+    width: 90%;
+    overflow-y: scroll;
+    flex: 0 2 auto;
+}
+
+.schoology-update-row {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.schoology-update-cell {
+    flex: 1 1 100%;
+    padding: 0rem;
+}
+
+.schoology-update-cell-input {
+    width: 100%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    border: 2px solid #888;
+    padding: 0.25rem;
+}
+
+.schoology-table-controls {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+}
+
+.schoology-table-controls > button {
+    margin: 0 0.5rem;
+}
+
+#schoology-send-update {
+    margin: 0.3rem;
+    font-size: 1.2rem;
+    width: 90%;
+    cursor: pointer;
+}
+
+.plain-text-message {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 0.3rem 10%;
+}
+
+.schoology-feed-controls {
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.schoology-feed-controls > button {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+}
+
+.schoology-feed-controls > button.is-active-feed {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.schoology-feed {
+    width: 90%;
+    height: 40rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.no-updates-message {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.schoology-feed-item {
+    width: 100%;
+    padding: 1rem;
+    background: #ddd;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.update-delete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.update-delete > svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #0009;
+}
+
+.update-delete > svg:hover {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #000c;
+}
+
+.schoology-sample-updates {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin: 0.3rem;
+    justify-content: center;
+}
+
+.schoology-sample-updates > button {
+    margin: 0 0.5rem;
+}
+
+.update-data {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.update-name {
+    font-weight: bold;
+}
+
+.update-date {
+    font-style: italic;
+}
+
+.update-content > table {
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.update-content td {
+    border: 3px solid #888;
+    padding: 0.25rem;
+    word-wrap: break-word;
+    height: 1.2rem;
+}
+
+.settings {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.settings-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.settings-button > svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #0009;
+}
+
+.settings-button:hover > svg {
+    fill: #000c;
+}
+
+.settings-menu {
+    background: #ddd;
+    border-radius: 1rem;
+    border: 2px solid #888;
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 3.6rem;
+    left: 1rem;
+    padding: 1rem;
+    width: 12rem;
+}
+
+.settings-menu.is-closed-settings {
+    display: none;
+}
+
+.settings-option {
+    margin: 0.25rem 0;
+    width: 100%;
+}
+
+.settings-option > button {
+    width: 100%;
+}
+
+.settings-option > input {
+    width: 100%;
+    box-sizing: border-box;
+}
+

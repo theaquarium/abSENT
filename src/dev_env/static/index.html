@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abSENT Development Environment</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sms-sim is-bigger">
+        <div class="sms-numbers">
+            <div class="sms-add-number">
+                <button id="sms-add-number-button">Add Number</button>
+            </div>
+            <div class="sms-numbers-list">
+                <div class="add-number-message">
+                    Add a number to send a message to abSENT.
+                </div>
+            </div>
+        </div>
+        <div class="sms-conversation">
+            <div class="sms-conversation-header">as <span id="sms-header-number">__________</span></div>
+            <div class="sms-conversation-texts"></div>
+            <div class="sms-input">
+                <input type="text" id="sms-input-field" placeholder="Your message here">
+                <button id="sms-input-send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89.471-1.178-1.178.471L5.93 9.363l.338.215a.5.5 0 0 1 .154.154l.215.338 7.494-7.494Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="schoology-sim">
+        <h1>Send Schoology Updates</h1>
+        <div class="schoology-update-data">
+            <input type="text" id="schoology-update-user" placeholder="Poster name (e.g. Jane Doe)">
+            <input type="text" id="schoology-update-date" placeholder="Date (e.g. 3/13/2021)">
+            <input type="text" id="schoology-update-time" placeholder="Time (e.g. 21:03)">
+        </div>
+        
+        <!-- <textarea id="schoology-update-content" placeholder="Update content">{}</textarea> -->
+        <div class="schoology-update-content">
+            <div class="schoology-update-row">
+                <div class="schoology-update-cell">
+                    <input type="text" class="schoology-update-cell-input" />
+                </div>
+                <div class="schoology-update-cell">
+                    <input type="text" class="schoology-update-cell-input" />
+                </div>
+                <div class="schoology-update-cell">
+                    <input type="text" class="schoology-update-cell-input" />
+                </div>
+                <div class="schoology-update-cell">
+                    <input type="text" class="schoology-update-cell-input" />
+                </div>
+                <div class="schoology-update-cell">
+                    <input type="text" class="schoology-update-cell-input" />
+                </div>
+            </div>
+        </div>
+        <div class="schoology-table-controls">
+            <button id="schoology-add-row">
+                Add Row
+            </button>
+            <button id="schoology-remove-row">
+                Remove Row
+            </button>
+            <button id="schoology-add-col">
+                Add Col
+            </button>
+            <button id="schoology-remove-col">
+                Remove Col
+            </button>
+            <button id="schoology-clear">
+                Clear
+            </button>
+        </div>
+        <p class="plain-text-message">To send a plain text update, leave the body blank.</p>
+        
+        <button id="schoology-send-update">
+            Send Update
+        </button>
+        <div class="schoology-sample-updates">
+            <button id="schoology-sample-south">
+                Sample South
+            </button>
+            <button id="schoology-sample-north-friend">
+                Sample North (Friend)
+            </button>
+            <button id="schoology-sample-north-spirito">
+                Sample North (Spirito)
+            </button>
+        </div>
+        <h2>Update Feed</h2>
+        <div class="schoology-feed-controls">
+            <button id="schoology-south-feed" class="is-active-feed">
+                South Feed
+            </button>
+            <button id="schoology-north-feed">
+                North Feed
+            </button>
+        </div>
+        <div class="schoology-feed">
+            <p class="no-updates-message">No South updates yet!</p>
+        </div>
+    </div>
+    <div class="settings">
+        <div class="settings-menu is-closed-settings">
+            <div class="settings-option">
+                <input id="setting-absent-date" type="text" id="date" placeholder="12/30/2021 21:07" />
+            </div>
+            <div class="settings-option">
+                <button id="setting-freeze-date">Freeze abSENT Date</button>
+            </div>
+            <div class="settings-option">
+                <button id="setting-unfreeze-date">Unfreeze abSENT Date</button>
+            </div>
+            <div class="settings-option">
+                <button id="setting-reset-state">Reset abSENT State</button>
+            </div>
+            <div class="settings-option">
+                <button id="setting-clear-conversations">Clear Conversations</button>
+            </div>
+            <div class="settings-option">
+                <button id="setting-clear-updates">Clear Updates</button>
+            </div>
+            <div class="settings-option">
+                <button id="setting-clear-all">Clear All</button>
+            </div>
+        </div>
+        <div class="settings-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+            </svg>
+        </div>
+    </div>
+
+    <template id="text">
+        <div class="sms-text"></div>
+    </template>
+    <template id="update">
+        <div class="schoology-feed-item">
+            <div class="update-delete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+            </div>
+            <div class="update-data">
+                <span class="update-name"></span>
+                <span class="update-date"></span>
+            </div>
+            <div class="update-content"></div>
+        </div>
+    </template>
+    <template id="number-card">
+        <div class="sms-number-card">
+            <span class="sms-number-card-text">1234567890</span>
+            <div class="sms-number-card-delete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                </svg>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="dateUtils.js"></script>
+    <script src="classes.js"></script>
+    <script src="storageController.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
